@@ -145,6 +145,10 @@ class Validation {
 }
 
 class Profile extends ConnectDB {
+    /**
+     * @param $id_user
+     * @return array
+     */
     public function viewProfile($id_user){
         $select = $this->DBH->prepare(
            "SELECT * FROM vdn_forum.vdn_profiles
@@ -183,6 +187,10 @@ class CreateForm
         }
         return $tpl;
     }
+
+    /**
+     * @return array
+     */
     public  function arrayLabels(){
         $arr_lab=array();
         $arr_lab[]='{{LASTNAME}}';
