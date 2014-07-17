@@ -1,9 +1,14 @@
 <?php
 session_start();
 require_once ('inc/classes.php');
-if(isset ($_SESSION['id_user'])){
+if(isset ($_SESSION['id_user']) or isset($_GET['id_user'])){
+    if (isset($_GET['id_user'])){
+        $id_user=$_GET['id_user'];
+    }else{
+        $id_user=$_SESSION['id_user'];
+    }
     $obj= new Profile();
-    $arr_var=$obj->viewProfile($_SESSION['id_user']);
+    $arr_var=$obj->viewProfile($id_user);
     $obj= new CreateForm();
     $tpl=$obj->getTPL('form_viewprofile');
     $arr_lab=$obj->arrayLabels();

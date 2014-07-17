@@ -164,7 +164,7 @@ class Profile extends ConnectDB {
         $arr_var[]=$row['first_name'];
         $arr_var[]=$row['gender'];
         $arr_var[]=$row['date_birth'];
-        //$arr[]=$row['photo'];
+        $arr[]=$row['photo'];
         //$arr_var[]=$row['status_name'];
         return $arr_var;
 
@@ -183,6 +183,7 @@ class Profile extends ConnectDB {
         $photo_type=$_FILES['photo']['type'];
         $photo_size=$_FILES['photo']['size'];
         $photo=$_FILES['photo']['name'];
+        $photo=time().$photo;
         list($photo_width, $photo_height) = getimagesize($_FILES['photo']['tmp_name']);
         if (!empty($photo)) {
             if ((($photo_type == 'image/gif') || ($photo_type == 'image/jpeg') || ($photo_type == 'image/pjpeg') ||
