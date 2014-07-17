@@ -78,7 +78,7 @@ CREATE TABLE `vdn_profiles` (
 
 LOCK TABLES `vdn_profiles` WRITE;
 /*!40000 ALTER TABLE `vdn_profiles` DISABLE KEYS */;
-INSERT INTO `vdn_profiles` VALUES (1,1,1,'Ivanov','Ivan','M','22/04/1987',NULL),(2,2,2,'Ivanivisch','Ivan','M','03/08/1986',NULL);
+INSERT INTO `vdn_profiles` VALUES (1,1,1,'Vechorko','Dima','M','22/04/1977','belarus.png'),(2,2,2,'Ivanivisch','Ivan','M','03/08/1986',NULL);
 /*!40000 ALTER TABLE `vdn_profiles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +160,7 @@ CREATE TABLE `vdn_users` (
 
 LOCK TABLES `vdn_users` WRITE;
 /*!40000 ALTER TABLE `vdn_users` DISABLE KEYS */;
-INSERT INTO `vdn_users` VALUES (1,'dima','111111','2014-07-14 20:42:18',1),(2,'ivan','11111111','2014-07-14 20:42:18',2),(3,'sveta','111111','2014-07-14 20:42:18',2),(4,'pety','11111','2014-07-14 20:42:18',3),(23,'Dinis','2ea6201a068c5fa0eea5d81a3863321a87f8d533','2014-07-15 08:07:24',2),(24,'Dini','2ea6201a068c5fa0eea5d81a3863321a87f8d533','2014-07-15 08:42:15',2),(29,'name','8cb2237d0679ca88db6464eac60da96345513964','2014-07-15 17:40:44',2),(30,'diam','40bd001563085fc35165329ea1ff5c5ecbdbbeef','2014-07-16 09:31:58',2),(31,'qwe','40bd001563085fc35165329ea1ff5c5ecbdbbeef','2014-07-16 09:46:21',2),(32,'qwerty','40bd001563085fc35165329ea1ff5c5ecbdbbeef','2014-07-16 10:55:48',2);
+INSERT INTO `vdn_users` VALUES (1,'dima','40bd001563085fc35165329ea1ff5c5ecbdbbeef','2014-07-17 12:38:50',1),(2,'ivan','11111111','2014-07-14 20:42:18',2),(3,'sveta','111111','2014-07-14 20:42:18',2),(4,'pety','11111','2014-07-14 20:42:18',3),(23,'Dinis','2ea6201a068c5fa0eea5d81a3863321a87f8d533','2014-07-15 08:07:24',2),(24,'Dini','2ea6201a068c5fa0eea5d81a3863321a87f8d533','2014-07-15 08:42:15',2),(29,'name','8cb2237d0679ca88db6464eac60da96345513964','2014-07-15 17:40:44',2),(30,'diam','40bd001563085fc35165329ea1ff5c5ecbdbbeef','2014-07-16 09:31:58',2),(31,'qwe','40bd001563085fc35165329ea1ff5c5ecbdbbeef','2014-07-16 09:46:21',2),(32,'qwerty','40bd001563085fc35165329ea1ff5c5ecbdbbeef','2014-07-16 10:55:48',2);
 /*!40000 ALTER TABLE `vdn_users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -173,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-07-16 22:54:28
+-- Dump completed on 2014-07-17 20:28:09
