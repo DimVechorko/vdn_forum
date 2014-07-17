@@ -164,7 +164,7 @@ class Profile extends ConnectDB {
         $arr_var[]=$row['first_name'];
         $arr_var[]=$row['gender'];
         $arr_var[]=$row['date_birth'];
-        $arr[]=$row['photo'];
+        $arr_var[]=$row['photo'];
         //$arr_var[]=$row['status_name'];
         return $arr_var;
 
@@ -243,6 +243,8 @@ class CreateForm
         $arr_lab[]='{{FIRSTNAME}}';
         $arr_lab[]='{{GENDER}}';
         $arr_lab[]='{{DATE_BIRTH}}';
+        $arr_lab[]='{{PHOTO}}';
+
 
         return $arr_lab;
     }
