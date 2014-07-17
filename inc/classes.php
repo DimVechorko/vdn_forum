@@ -207,7 +207,7 @@ class CreateForm
 class ProcessTPL{
       public function processTemplace(array $arr_lab,array $arr_var,$tpl){
 
-        $tpl = str_replace("$arr_lab", "$arr_var", "$tpl");
+        $tpl = str_replace($arr_lab, $arr_var, $tpl);
 
         return $tpl;
     }
