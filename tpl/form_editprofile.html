@@ -3,8 +3,8 @@
 <head>
     <title>Edit Profile</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" media="screen" href="../css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/stylepost.css" />
+    <link rel="stylesheet" media="screen" href="http://localhost/forum/css/bootstrap.css">
+
 
 </head>
 <body>
@@ -13,7 +13,7 @@
 
     <div class="row">
 
-        <legend><img src="../img/profile.jpg"></legend>
+        <legend><img src="http://localhost/forum/img/profile.jpg"></legend>
         <br/>
         <div class="span8">
 
@@ -21,14 +21,14 @@
             <hr>
             <br/>
 
-            <form class="form-horizontal" id="myForm">
+            <form class="form-horizontal" enctype="multipart/form-data" action="http://localhost/forum/edit_profile.php" method="post" id="myForm">
                 <fieldset>
                     <div class="control-group">
 
-                        <label class="control-label" for="picture">Photo</label>
+                        <label class="control-label" for="photo">Photo</label>
                         <div class="controls">
 
-                            <input class="span8" type="file" name="picture" id="picture" value="" placeholder="Fishka" />
+                            <input class="span8" type="file" name="photo" id="photo" value="" placeholder="" />
                         </div>
                     </div>
                     <div class="control-group">
@@ -36,7 +36,7 @@
                         <label class="control-label" for="username">UserName</label>
                         <div class="controls">
 
-                            <input class="span8" type="text" name="username" id="username" value="" placeholder="Fishka" />
+                            <input class="span8" type="text" name="username" id="username" value="" placeholder="{{USERNAME}}" />
                         </div>
                     </div>
 
@@ -45,13 +45,13 @@
                         <label class="control-label" for="last_name">Last Name</label>
                         <div class="controls">
 
-                            <input class="span8" type="text" name="last_name" id="last_name" value="" placeholder="Ivanov" />
+                            <input class="span8" type="text" name="last_name" id="last_name" value="" placeholder="{{LASTNAME}}" />
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="first_name">First Name</label>
                         <div class="controls">
-                            <input class="span8" type="text" name="first_name" id="first_name" value="" placeholder="Ivan" />
+                            <input class="span8" type="text" name="first_name" id="first_name" value="" placeholder="{{FIRSTNAME}}" />
                         </div>
                     </div>
                     <div class="control-group">
@@ -67,7 +67,7 @@
                     <div class="control-group">
                         <label class="control-label" for="date_birth">Date of Birth</label>
                         <div class="controls">
-                            <input class="span8" type="text" name="date_birth" id="date_birth" value="" placeholder="DD/MM/YY"/>
+                            <input class="span8" type="text" name="date_birth" id="date_birth" value="" placeholder="{{DATE_BIRTH}}"/>
                         </div>
                     </div>
                     <div class="controls">

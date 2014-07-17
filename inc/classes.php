@@ -120,8 +120,8 @@ class Validation {
      */
     public function validComment($comment){
         if (!empty($comment)){
-            if (strlen($comment)<50){
-                $_SESSION['comment_error']='|ERROR:entered text contains less than 50 characters|';
+            if (strlen($comment)<15){
+                $_SESSION['comment_error']='|ERROR:entered text contains less than 15 characters|';
                 return false;
             }else{
                 return true;}
@@ -145,7 +145,10 @@ class Validation {
 }
 
 class Profile extends ConnectDB {
+
+
     /**
+     * Запрос данных о пользователе
      * @param $id_user
      * @return array
      */
@@ -166,12 +169,54 @@ class Profile extends ConnectDB {
         return $arr_var;
 
     }
-    public  function editProfile(){
 
+    /**
+     * Изменение данных пользователя
+     * @param $id_user
+     * @return bool
+     */
+    public  function editProfile($id_user,$last_name,$first_name,$gender,$date_birth){
+        define('MM_UPLOADPATH', 'images/');
+        define('MM_MAXFILESIZE', 320768);      // 320 KB
+        define('MM_MAXIMGWIDTH', 320);        // 320 pixels
+        define('MM_MAXIMGHEIGHT', 320);       // 320 pixels
+        $photo_type=$_FILES['photo']['type'];
+        $photo_size=$_FILES['photo']['size'];
+        $photo=$_FILES['photo']['name'];
+        list($photo_width, $photo_height) = getimagesize($_FILES['photo']['tmp_name']);
+        if (!empty($photo)) {
+            if ((($photo_type == 'image/gif') || ($photo_type == 'image/jpeg') || ($photo_type == 'image/pjpeg') ||
+                    ($photo_type == 'image/png')) && ($photo_size > 0) && ($photo_size <= MM_MAXFILESIZE) &&
+                ($photo_width <= MM_MAXIMGWIDTH) && ($photo_height <= MM_MAXIMGHEIGHT)){
+                if($_FILES['file']['error']==0){
+                    $target=MM_UPLOADPATH.$photo;
+                    if(move_uploaded_file($_FILES['photo']['tmp_name'],$target)){
+
+                    }else{
+                        @unlink($_FILES['photo']['tmp_name']);
+                        $error = true;
+                        echo '<p class="error">К сожалению, возникла проблема при загрузке фотографии.</p>';
+                    }
+                }
+            }else{
+                @unlink($_FILES['photo']['tmp_name']);
+                $error = true;
+                echo '<p class="error">Ваше изображение должно быть в формате GIF, JPEG, или PNG,объем не более ' . (MM_MAXFILESIZE / 1024) .
+                    ' KB и размером ' . MM_MAXIMGWIDTH . 'x' . MM_MAXIMGHEIGHT . ' pixels.</p>';
+            }
+        }
+        $update = $this->DBH->prepare(
+            "UPDATE vdn_forum.vdn_profiles
+             SET last_name='$last_name',first_name='$first_name',gender='$gender'
+                ,date_birth='$date_birth',photo='$photo'
+             WHERE id_user='$id_user'");
+        return $update->execute();
     }
 }
-//$obj= new Profile();
-//var_dump($obj->viewProfile(2));
+/*$obj= new Profile();
+var_dump($obj->viewProfile(1));
+var_dump($obj->edirProfile(1));
+*/
 
 class CreateForm
 {
